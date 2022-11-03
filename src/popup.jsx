@@ -678,6 +678,7 @@ function Popup() {
 
             <Center>
                 <Heading color={'white'} mt='8px'>Repos</Heading>
+                <Button ml='20px' mt='4px' type="submit" size='xs' color='white' bg='grey'>Add Repo</Button>
             </Center>
 
             <Accordion color='white' mt='20px' allowMultiple>
