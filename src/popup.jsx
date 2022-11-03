@@ -486,7 +486,7 @@ function Popup() {
             body: formdata,
         };
 
-        fetch("https://api.clickup.com/api/v2/task/2yma1db/attachment", requestOptions)
+        fetch(`https://api.clickup.com/api/v2/task/${currentTask}/attachment`, requestOptions)
             .then(response => response.text())
             .then(result => alert(result))
             .catch(error => console.log('error', error));
