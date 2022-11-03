@@ -495,7 +495,7 @@ function Popup() {
 
     return (AccessToken) ? (
 
-        <Box w='400px' h='400px' bgGradient='linear(to-l, #000000, #2D3436)' overflowY={'scroll'} overflowX={'hidden'}>
+        <Box w='500px' h='500px' bgGradient='linear(to-l, #000000, #2D3436)' overflowY={'scroll'} overflowX={'hidden'}>
             <Grid
                 h='100px'
                 templateRows='repeat(2, 1fr)'
@@ -581,7 +581,7 @@ function Popup() {
                 </GridItem>
                 <GridItem colSpan={4} />
                 <GridItem colSpan={4}>
-                    <Heading color='white' h='100px' fontSize='40px'>Clickup Tasks</Heading>
+                    <Heading color='white' h='100px' fontSize='40px'>ClickUpLoadIt</Heading>
                 </GridItem>
             </Grid>
 
@@ -677,7 +677,7 @@ function Popup() {
             <Divider bg={'white'} color='white' borderWidth='2px' />
 
             <Center>
-                <Heading color={'white'} mt='8px'>Tasks</Heading>
+                <Heading color={'white'} mt='8px'>Repos</Heading>
             </Center>
 
             <Accordion color='white' mt='20px' allowMultiple>
@@ -696,13 +696,17 @@ function Popup() {
                                         </AccordionButton>
                                     </h2>
                                     <AccordionPanel pb={4}>
-                                        <Box>
+                                        <Box mb='4px'>
                                             <form onSubmit={handleSubmit(onSubmit)} id='form'>
                                                 <input type="file" {...register("attachment")} />
 
                                                 <Button type="submit" size='xs' color='white' bg='grey'>Submit</Button>
                                             </form>
                                         </Box>
+                                        <Box>
+                                            <Button mt='4px' type="submit" size='xs' color='white' bg='grey' onClick={() => { window.open(`https://app.clickup.com/t/${currentTask}`, "ClickUp Files") }}>Download</Button>
+                                        </Box>
+
                                     </AccordionPanel>
                                 </AccordionItem>
                             </Box>
