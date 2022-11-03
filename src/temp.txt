@@ -1,0 +1,89 @@
+                                                                <Modal blockScrollOnMount={false} isOpen={SOpen} onClose={SOnClose}>
+                                                                    <ModalOverlay />
+                                                                    <ModalContent>
+                                                                        <ModalHeader>Choose your Space</ModalHeader>
+                                                                        <ModalCloseButton />
+                                                                        <ModalBody>
+                                                                            <Text fontWeight='bold' mb='1rem'>
+                                                                                Choose your space here
+                                                                            </Text>
+                                                                        </ModalBody>
+
+                                                                        <ModalFooter>
+                                                                            <Button mr={3} onClick={SOnClose}>
+                                                                                Close
+                                                                            </Button>
+                                                                        </ModalFooter>
+                                                                    </ModalContent>
+                                                                </Modal>
+
+
+
+
+                                                                                <Drawer
+                    isOpen={fOpen}
+                    placement='left'
+                    onClose={fOnClose}
+                    finalFocusRef={btn4Ref}
+                >
+                    <DrawerOverlay />
+                    <DrawerContent>
+                        <DrawerCloseButton />
+                        <DrawerHeader>Select your Folder</DrawerHeader>
+                        <DrawerBody>
+                            <Text fontWeight={700}>
+                                <Icon as={RiFoldersLine} /> Spaces:
+                            </Text>
+                            {
+                                Folders && Folders.length > 0 ? (
+                                    Folders?.map((item, i) => (
+                                        <Box key={i}>
+
+                                            <VStack py={3} alignItems={'flex-start'} px={3}>
+
+                                                <Link
+                                                    color={'purple.400'}
+                                                    fontWeight={700} fontSize={'lg'}>
+                                                    + {item.name}
+                                                </Link>
+                                                <Text fontWeight={700}>
+                                                    <Icon as={AiOutlineUnorderedList} /> Lists:
+                                                </Text>
+                                                {
+                                                    item.lists && item.lists.length > 0 ? (
+                                                        item.lists?.map((item2, i) => (
+                                                            <Box w="100%" key={i}>
+
+                                                                <Link
+                                                                    ref={btn3Ref}
+                                                                    onClick={() => { setCurrentList(item2.id); setCurrentFolder(item.id); GetMyTasks(item2.id); LOnOpen() }}
+                                                                    color={'purple.400'}
+                                                                    px={3}
+                                                                    fontWeight={700} fontSize={'sm'}>
+                                                                    {"*"} {item2.name}
+                                                                </Link>
+
+                                                            </Box>
+                                                        ))
+                                                    ) : (<Box>
+                                                        No lists
+                                                    </Box>)
+
+
+                                                }
+
+                                            </VStack>
+
+                                        </Box>
+                                    ))
+                                ) : (<Box>
+                                    No folders</Box>)
+                            }
+                        </DrawerBody>
+
+                        <DrawerFooter>
+                            <Button>Save</Button>
+                        </DrawerFooter>
+                    </DrawerContent>
+                </Drawer>
+            </>
