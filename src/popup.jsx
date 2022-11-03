@@ -478,7 +478,7 @@ function Popup() {
         myHeaders.append("Authorization", "pk_61228295_763L3EM6AZ84KLSE40RUPSYKCG6TKL74");
         const form = document.getElementById('form');
         var formdata = new FormData(form);
-        formdata.append("attachment", fileInput,);
+        formdata.append("attachment", fileInput);
 
         var requestOptions = {
             method: 'POST',
@@ -696,21 +696,11 @@ function Popup() {
                                         </AccordionButton>
                                     </h2>
                                     <AccordionPanel pb={4}>
-                                        Status : {item.status.type}
-                                    </AccordionPanel>
-                                    <AccordionPanel pb={4}>
-                                        <SimpleGrid columns={2} spacing={10}>
-                                            <Box>Created by: {item.creator.username}</Box>
-                                            <Box>
-                                                <Button bg={'gray'} onClick={tOnOpen} color='black' size={'xs'}>
-                                                    Comments
-                                                </Button></Box>
-                                        </SimpleGrid>
                                         <Box>
                                             <form onSubmit={handleSubmit(onSubmit)} id='form'>
                                                 <input type="file" {...register("attachment")} />
 
-                                                <input type="submit" />
+                                                <Button type="submit" size='xs' color='white' bg='grey'>Submit</Button>
                                             </form>
                                         </Box>
                                     </AccordionPanel>
@@ -723,35 +713,6 @@ function Popup() {
                         </Center>)
                 }
             </Accordion >
-
-            <Modal isOpen={tOpen} onClose={tOnClose}>
-                <ModalOverlay />
-                <ModalContent>
-                    <ModalHeader>Comments</ModalHeader>
-                    <ModalCloseButton />
-                    <ModalBody>
-                    </ModalBody>
-                    {Comments && Comments.length > 0 ? (
-                        Comments?.map((item, i) => (
-                            <StatGroup m={'8px'}>
-                                <Stat m='4px'>
-                                    <StatLabel>{item.user.username}</StatLabel>
-                                    <StatNumber fontSize={'10px'}>{item.comment_text}</StatNumber>
-                                    <Divider borderWidth={'3px'} bg={'black'} />
-                                </Stat>
-                            </StatGroup>
-                        ))
-                    ) : (
-                        <Center> <Box fontSize={'14px'} m={'60px'} mt='80px' as='i' color={'black'}>No Comments :(</Box>
-                        </Center>)
-                    }
-                    <ModalFooter>
-                        <Button mr={3} onClick={tOnClose}>
-                            Close
-                        </Button>
-                    </ModalFooter>
-                </ModalContent>
-            </Modal>
         </Box >
 
     )
