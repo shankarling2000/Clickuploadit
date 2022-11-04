@@ -496,7 +496,7 @@ function Popup() {
 
     return (AccessToken) ? (
 
-        <Box w='400px' h='500px' bgGradient='linear(to-l, #000000, #2D3436)' overflowY={'scroll'} overflowX={'hidden'}>
+        <Box w='400px' h='500px' bgGradient='linear(to-r, #000000, #923CB5)' overflowY={'scroll'} overflowX={'hidden'}>
             <Grid
                 h='100px'
                 templateRows='repeat(2, 1fr)'
@@ -510,7 +510,7 @@ function Popup() {
                             size='lg'
                             aria-label='Options'
                             icon={<HamburgerIcon />}
-                            bg='gray.600'
+                            bg='#923CB5'
                             mt='10px'
                             ml='10px'
                             mb='10px'
@@ -616,11 +616,11 @@ function Popup() {
                         Change List
                     </Button>
                 </Center>
-                <Drawer placement={placement} onClose={fOnClose} isOpen={fOpen} bgGradient='linear(to-l, #000000, #2D3436)'>
+                <Drawer placement={placement} onClose={fOnClose} isOpen={fOpen} bgGradient='linear(to-r, #000000, #923CB5)'>
                     <DrawerOverlay />
-                    <DrawerContent bgGradient='linear(to-l, #000000, #2D3436)' color={'white'}>
+                    <DrawerContent bgGradient='linear(to-r, #000000, #923CB5)' color={'white'}>
                         <DrawerHeader color={'white'} borderBottomWidth='1px'> Folders:</DrawerHeader>
-                        <DrawerBody bgGradient='linear(to-l, #000000, #2D3436)'>
+                        <DrawerBody bgGradient='linear(to-r, #000000, #923CB5)'>
                             <Text fontWeight={700} color={'white'} >
                                 <Icon as={RiFoldersLine} color='white' /> Folders:
                             </Text>
@@ -686,7 +686,7 @@ function Popup() {
                     <GridItem colStart={5} colEnd={6} h='10'>
                         <Center>
                             <>
-                                <Button onClick={() => { window.open(`https://app.clickup.com/${currentTeam}/v/l/li/${currentList}`, "ClickUp Tasks") }} ml='20px' mt='20px' type="submit" size='xs' color='white' bg='grey'>
+                                <Button onClick={() => { window.open(`https://app.clickup.com/${currentTeam}/v/l/li/${currentList}`, "ClickUp Tasks") }} ml='20px' mt='20px' type="submit" size='xs' color='white' bg='black'>
                                     Add Repo
                                 </Button>
                             </>
@@ -714,11 +714,11 @@ function Popup() {
                                             <form onSubmit={handleSubmit(onSubmit)} id='form'>
                                                 <input type="file" {...register("attachment")} />
 
-                                                <Button type="submit" size='xs' color='white' bg='grey'>Submit</Button>
+                                                <Button type="submit" size='xs' color='white' bg='black'>Submit</Button>
                                             </form>
                                         </Box>
                                         <Box>
-                                            <Button mt='4px' type="submit" size='xs' color='white' bg='grey' onClick={() => { window.open(`https://app.clickup.com/t/${currentTask}`, "ClickUp Files") }}>Download</Button>
+                                            <Button mt='4px' type="submit" size='xs' color='white' bg='black' onClick={() => { window.open(`https://app.clickup.com/t/${currentTask}`, "ClickUp Files") }}>Download</Button>
                                         </Box>
 
                                     </AccordionPanel>
@@ -738,7 +738,7 @@ function Popup() {
 
         : (
             <Center>
-                <Box w='300px' h='400px' pt='150px' pb='100px' pl='80px' pr='80px' bgGradient='linear(to-l, #000000, #2D3436)'>
+                <Box w='300px' h='400px' pt='150px' pb='100px' pl='80px' pr='80px' bgGradient='linear(to-r, #000000, #923CB5)'>
                     <Image src='./clickup.png' alt='ClickUp'>
 
                     </Image>
