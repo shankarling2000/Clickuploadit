@@ -365,99 +365,99 @@ function Popup() {
         SetOneTask(jdata)
     }
 
-    const UpdateTask = async (updated, id) => {
-        let obj = {
+    // const UpdateTask = async (updated, id) => {
+    //     let obj = {
 
-            name: updated.name,
-            description: updated.description,
-            tags: updated.tags
-        }
-
-
-
-        const data = await fetch(`https://api.clickup.com/api/v2/task/${id}`, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json',
-                "Authorization": AccessToken,
-            },
-            body: JSON.stringify(obj)
-        })
-        const jdata = await data.json()
-        if (data.status == 200) {
-            toast({
-                size: 'xs',
-                title: "Task updated",
-                status: 'success',
-                duration: 3000,
-                isClosable: true,
-                position: 'top'
-            })
-        }
-        else {
-            toast({
-                size: 'xs',
-                title: "Something went wrong",
-                status: 'error',
-                duration: 3000,
-                isClosable: true,
-                position: 'top'
-            })
-        }
-
-    }
-
-    const DeleteTask = async (id) => {
-
-        const data = await fetch(`https://api.clickup.com/api/v2/task/${id}`, {
-            method: 'DELETE',
-            headers: {
-                'Content-Type': 'application/json',
-                "Authorization": AccessToken
-            }
-        })
+    //         name: updated.name,
+    //         description: updated.description,
+    //         tags: updated.tags
+    //     }
 
 
 
-        if (!data) {
-            toast({
-                size: 'xs',
-                title: "Something went wrong",
-                status: 'error',
-                duration: 3000,
-                isClosable: true,
-                position: 'top'
-            })
+    //     const data = await fetch(`https://api.clickup.com/api/v2/task/${id}`, {
+    //         method: 'PUT',
+    //         headers: {
+    //             'Content-Type': 'application/json',
+    //             "Authorization": AccessToken,
+    //         },
+    //         body: JSON.stringify(obj)
+    //     })
+    //     const jdata = await data.json()
+    //     if (data.status == 200) {
+    //         toast({
+    //             size: 'xs',
+    //             title: "Task updated",
+    //             status: 'success',
+    //             duration: 3000,
+    //             isClosable: true,
+    //             position: 'top'
+    //         })
+    //     }
+    //     else {
+    //         toast({
+    //             size: 'xs',
+    //             title: "Something went wrong",
+    //             status: 'error',
+    //             duration: 3000,
+    //             isClosable: true,
+    //             position: 'top'
+    //         })
+    //     }
 
-        }
-        else {
-            toast({
-                size: 'xs',
-                title: "Task deleted",
-                status: 'success',
-                duration: 3000,
-                isClosable: true,
-                position: 'top'
-            })
-        }
-        const newTasks = Tasks.filter((ele) => ele.id != id)
-        SetTasks(newTasks)
-        SetOneTask({})
+    // }
 
-    }
+    // const DeleteTask = async (id) => {
 
-    const GetMyComments = async (id) => {
-        const data = await fetch(`https://api.clickup.com/api/v2/task/${id}/comment`, {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-                "Authorization": AccessToken
-            }
-        })
+    //     const data = await fetch(`https://api.clickup.com/api/v2/task/${id}`, {
+    //         method: 'DELETE',
+    //         headers: {
+    //             'Content-Type': 'application/json',
+    //             "Authorization": AccessToken
+    //         }
+    //     })
 
-        const jdata = await data.json();
-        SetComments(jdata.comments);
-    }
+
+
+    //     if (!data) {
+    //         toast({
+    //             size: 'xs',
+    //             title: "Something went wrong",
+    //             status: 'error',
+    //             duration: 3000,
+    //             isClosable: true,
+    //             position: 'top'
+    //         })
+
+    //     }
+    //     else {
+    //         toast({
+    //             size: 'xs',
+    //             title: "Task deleted",
+    //             status: 'success',
+    //             duration: 3000,
+    //             isClosable: true,
+    //             position: 'top'
+    //         })
+    //     }
+    //     const newTasks = Tasks.filter((ele) => ele.id != id)
+    //     SetTasks(newTasks)
+    //     SetOneTask({})
+
+    // }
+
+    // const GetMyComments = async (id) => {
+    //     const data = await fetch(`https://api.clickup.com/api/v2/task/${id}/comment`, {
+    //         method: 'GET',
+    //         headers: {
+    //             'Content-Type': 'application/json',
+    //             "Authorization": AccessToken
+    //         }
+    //     })
+
+    //     const jdata = await data.json();
+    //     SetComments(jdata.comments);
+    // }
 
 
     const theme = extendTheme({
