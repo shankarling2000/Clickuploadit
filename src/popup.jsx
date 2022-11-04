@@ -495,7 +495,7 @@ function Popup() {
 
     return (AccessToken) ? (
 
-        <Box w='500px' h='500px' bgGradient='linear(to-l, #000000, #2D3436)' overflowY={'scroll'} overflowX={'hidden'}>
+        <Box w='400px' h='500px' bgGradient='linear(to-l, #000000, #2D3436)' overflowY={'scroll'} overflowX={'hidden'}>
             <Grid
                 h='100px'
                 templateRows='repeat(2, 1fr)'
@@ -612,7 +612,7 @@ function Popup() {
             <>
                 <Center>
                     <Button onClick={fOnOpen} color='white' bg='transparent' rightIcon={<ChevronDownIcon />}>
-                        Change folder
+                        Change List
                     </Button>
                 </Center>
                 <Drawer placement={placement} onClose={fOnClose} isOpen={fOpen} bgGradient='linear(to-l, #000000, #2D3436)'>
@@ -632,10 +632,10 @@ function Popup() {
 
                                                 <Text
                                                     color={'white'}
-                                                    fontWeight={700} fontSize={'lg'}>
-                                                    {item.name}
+                                                    fontWeight={700} fontSize={'s'}>
+                                                    {item.name} :-
                                                 </Text>
-                                                <Text fontWeight={700} color='white'>
+                                                <Text fontWeight={700} color='white' size='lg'>
                                                     <Icon as={AiOutlineUnorderedList} color='white' /> Lists:
                                                 </Text>
                                                 {
@@ -648,9 +648,9 @@ function Popup() {
                                                                     onClick={() => { setCurrentList(item2.id); setCurrentFolder(item.id); GetMyTasks(item2.id); LOnOpen() }}
                                                                     color={'white'}
                                                                     px={3}
-                                                                    fontWeight={700} fontSize={'sm'}
+                                                                    fontWeight={700} fontSize={'s'}
                                                                     _hover={{ cursor: 'pointer' }}>
-                                                                    {item2.name}
+                                                                    - {item2.name}
                                                                 </Text>
 
                                                             </Box>
@@ -676,11 +676,18 @@ function Popup() {
             </>
             <Divider bg={'white'} color='white' borderWidth='2px' />
             <Box>
-                <Center>
-                    <Heading color={'white'} mt='8px'>Repos</Heading>
-                    <Button ml='20px' mt='4px' type="submit" size='xs' color='white' bg='grey'>Add Repo</Button>
-                </Center>
+                <Grid templateColumns='repeat(5, 1fr)' gap={4}>
+                    <GridItem colSpan={3} h='10'>
 
+                        <Heading color={'white'} ml='125px' mt='8px'>Repos</Heading>
+
+                    </GridItem>
+                    <GridItem colStart={5} colEnd={6} h='10'>
+                        <Center>
+                            <Button ml='20px' mt='20px' type="submit" size='xs' color='white' bg='grey'>Add Repo</Button>
+                        </Center>
+                    </GridItem>
+                </Grid>
             </Box>
             <Accordion color='white' mt='20px' allowMultiple>
 
