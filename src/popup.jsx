@@ -589,7 +589,7 @@ function Popup() {
                 <Center>
                     <Menu>
                         <MenuButton as={Button} bg='transparent' color={'white'} rightIcon={<ChevronDownIcon />}>
-                            Choose your space
+                            Change  workspace
                         </MenuButton>
                         <MenuList>
                             {
@@ -601,7 +601,7 @@ function Popup() {
                                         </MenuItem>
                                     ))
                                 ) : (
-                                    <Box>Choose a workspace</Box>
+                                    <Box>No workspaces</Box>
                                 )
                             }
                         </MenuList>
@@ -612,7 +612,7 @@ function Popup() {
             <>
                 <Center>
                     <Button onClick={fOnOpen} color='white' bg='transparent' rightIcon={<ChevronDownIcon />}>
-                        Choose your folder
+                        Change folder
                     </Button>
                 </Center>
                 <Drawer placement={placement} onClose={fOnClose} isOpen={fOpen} bgGradient='linear(to-l, #000000, #2D3436)'>
@@ -675,12 +675,13 @@ function Popup() {
                 </Drawer>
             </>
             <Divider bg={'white'} color='white' borderWidth='2px' />
+            <Box>
+                <Center>
+                    <Heading color={'white'} mt='8px'>Repos</Heading>
+                    <Button ml='20px' mt='4px' type="submit" size='xs' color='white' bg='grey'>Add Repo</Button>
+                </Center>
 
-            <Center>
-                <Heading color={'white'} mt='8px'>Repos</Heading>
-                <Button ml='20px' mt='4px' type="submit" size='xs' color='white' bg='grey'>Add Repo</Button>
-            </Center>
-
+            </Box>
             <Accordion color='white' mt='20px' allowMultiple>
 
                 {
