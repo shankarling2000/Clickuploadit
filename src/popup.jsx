@@ -272,68 +272,68 @@ function Popup() {
     }
 
 
-    // const AddNewTag = () => {
-    //     let clone = [...Tags]
-    //     clone.push(currentTag)
-    //     setTags(clone)
-    // }
+    const AddNewTag = () => {
+        let clone = [...Tags]
+        clone.push(currentTag)
+        setTags(clone)
+    }
 
-    // const AddNewAssignee = () => {
-    //     let clone = [...Assigned]
-    //     clone.push(currentAssigned)
-    //     SetAssigned(clone)
-    // }
+    const AddNewAssignee = () => {
+        let clone = [...Assigned]
+        clone.push(currentAssigned)
+        SetAssigned(clone)
+    }
 
-    // const SendData = async (e) => {
-    //     e.preventDefault()
-    //     let obj = {
-    //         name: title,
-    //         description: description,
-    //         assignees: Assigned,
-    //         tags: Tags,
-    //         due_date: dueDate
-    //     }
-    //     let clone = [...Tasks]
-    //     clone.push(obj)
-    //     SetTasks(clone)
+    const SendData = async (e) => {
+        e.preventDefault()
+        let obj = {
+            name: title,
+            description: description,
+            assignees: Assigned,
+            tags: Tags,
+            due_date: dueDate
+        }
+        let clone = [...Tasks]
+        clone.push(obj)
+        SetTasks(clone)
 
-    //     const data = await fetch(`https://api.clickup.com/api/v2/list/${currentList}/task`, {
-    //         method: 'POST',
-    //         headers: {
-    //             'Content-Type': 'application/json',
-    //             "Authorization": AccessToken
-    //         },
-    //         body: JSON.stringify(obj)
-    //     })
-    //     const jdata = await data.json()
-    //     if (data.status == 200) {
-    //         toast({
-    //             size: 'xs',
-    //             title: "Task created",
-    //             status: 'success',
-    //             duration: 3000,
-    //             isClosable: true,
-    //             position: 'top'
-    //         })
-    //     }
-    //     else {
-    //         toast({
-    //             size: 'xs',
-    //             title: "Enter all fields please",
-    //             status: 'error',
-    //             duration: 3000,
-    //             isClosable: true,
-    //             position: 'top'
-    //         })
-    //     }
+        const data = await fetch(`https://api.clickup.com/api/v2/list/${currentList}/task`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                "Authorization": AccessToken
+            },
+            body: JSON.stringify(obj)
+        })
+        const jdata = await data.json()
+        if (data.status == 200) {
+            toast({
+                size: 'xs',
+                title: "Task created",
+                status: 'success',
+                duration: 3000,
+                isClosable: true,
+                position: 'top'
+            })
+        }
+        else {
+            toast({
+                size: 'xs',
+                title: "Enter all fields please",
+                status: 'error',
+                duration: 3000,
+                isClosable: true,
+                position: 'top'
+            })
+        }
 
-    //     setTitle('')
-    //     setDescription('')
-    //     setTags([])
-    //     SetAssigned([])
+        setTitle('')
+        setDescription('')
+        setTags([])
+        SetAssigned([])
 
 
-    // }
+    }
 
 
 
@@ -365,86 +365,86 @@ function Popup() {
         SetOneTask(jdata)
     }
 
-    // const UpdateTask = async (updated, id) => {
-    //     let obj = {
+    const UpdateTask = async (updated, id) => {
+        let obj = {
 
-    //         name: updated.name,
-    //         description: updated.description,
-    //         tags: updated.tags
-    //     }
-
-
-
-    //     const data = await fetch(`https://api.clickup.com/api/v2/task/${id}`, {
-    //         method: 'PUT',
-    //         headers: {
-    //             'Content-Type': 'application/json',
-    //             "Authorization": AccessToken,
-    //         },
-    //         body: JSON.stringify(obj)
-    //     })
-    //     const jdata = await data.json()
-    //     if (data.status == 200) {
-    //         toast({
-    //             size: 'xs',
-    //             title: "Task updated",
-    //             status: 'success',
-    //             duration: 3000,
-    //             isClosable: true,
-    //             position: 'top'
-    //         })
-    //     }
-    //     else {
-    //         toast({
-    //             size: 'xs',
-    //             title: "Something went wrong",
-    //             status: 'error',
-    //             duration: 3000,
-    //             isClosable: true,
-    //             position: 'top'
-    //         })
-    //     }
-
-    // }
-
-    // const DeleteTask = async (id) => {
-
-    //     const data = await fetch(`https://api.clickup.com/api/v2/task/${id}`, {
-    //         method: 'DELETE',
-    //         headers: {
-    //             'Content-Type': 'application/json',
-    //             "Authorization": AccessToken
-    //         }
-    //     })
+            name: updated.name,
+            description: updated.description,
+            tags: updated.tags
+        }
 
 
 
-    //     if (!data) {
-    //         toast({
-    //             size: 'xs',
-    //             title: "Something went wrong",
-    //             status: 'error',
-    //             duration: 3000,
-    //             isClosable: true,
-    //             position: 'top'
-    //         })
+        const data = await fetch(`https://api.clickup.com/api/v2/task/${id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+                "Authorization": AccessToken,
+            },
+            body: JSON.stringify(obj)
+        })
+        const jdata = await data.json()
+        if (data.status == 200) {
+            toast({
+                size: 'xs',
+                title: "Task updated",
+                status: 'success',
+                duration: 3000,
+                isClosable: true,
+                position: 'top'
+            })
+        }
+        else {
+            toast({
+                size: 'xs',
+                title: "Something went wrong",
+                status: 'error',
+                duration: 3000,
+                isClosable: true,
+                position: 'top'
+            })
+        }
 
-    //     }
-    //     else {
-    //         toast({
-    //             size: 'xs',
-    //             title: "Task deleted",
-    //             status: 'success',
-    //             duration: 3000,
-    //             isClosable: true,
-    //             position: 'top'
-    //         })
-    //     }
-    //     const newTasks = Tasks.filter((ele) => ele.id != id)
-    //     SetTasks(newTasks)
-    //     SetOneTask({})
+    }
 
-    // }
+    const DeleteTask = async (id) => {
+
+        const data = await fetch(`https://api.clickup.com/api/v2/task/${id}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+                "Authorization": AccessToken
+            }
+        })
+
+
+
+        if (!data) {
+            toast({
+                size: 'xs',
+                title: "Something went wrong",
+                status: 'error',
+                duration: 3000,
+                isClosable: true,
+                position: 'top'
+            })
+
+        }
+        else {
+            toast({
+                size: 'xs',
+                title: "Task deleted",
+                status: 'success',
+                duration: 3000,
+                isClosable: true,
+                position: 'top'
+            })
+        }
+        const newTasks = Tasks.filter((ele) => ele.id != id)
+        SetTasks(newTasks)
+        SetOneTask({})
+
+    }
 
     const GetMyComments = async (id) => {
         const data = await fetch(`https://api.clickup.com/api/v2/task/${id}/comment`, {
@@ -489,8 +489,8 @@ function Popup() {
 
         fetch(`https://api.clickup.com/api/v2/task/${currentTask}/attachment`, requestOptions)
             .then(response => response.text())
-            .then(result => alert(result))
-            .catch(error => console.log('error', error));
+            .then(result => alert("File uploaded"))
+            .catch(error => alert("Something went wrong"));
     }
 
 
@@ -590,7 +590,7 @@ function Popup() {
                 <Center>
                     <Menu>
                         <MenuButton as={Button} bg='transparent' color={'white'} rightIcon={<ChevronDownIcon />}>
-                            Change  workspace
+                            Change workspace
                         </MenuButton>
                         <MenuList>
                             {
@@ -686,24 +686,9 @@ function Popup() {
                     <GridItem colStart={5} colEnd={6} h='10'>
                         <Center>
                             <>
-                                <Button onClick={TcOnOpen} ml='20px' mt='20px' type="submit" size='xs' color='white' bg='grey'>
+                                <Button onClick={() => { window.open(`https://app.clickup.com/${currentTeam}/v/l/li/${currentList}`, "ClickUp Tasks") }} ml='20px' mt='20px' type="submit" size='xs' color='white' bg='grey'>
                                     Add Repo
                                 </Button>
-                                <Modal finalFocusRef={finalRef} isOpen={TcOpen} onClose={TcOnClose}>
-                                    <ModalOverlay />
-                                    <ModalContent>
-                                        <ModalHeader>Modal Title</ModalHeader>
-                                        <ModalCloseButton />
-                                        <ModalBody>
-                                        </ModalBody>
-
-                                        <ModalFooter>
-                                            <Button colorScheme='blue' mr={3} onClick={TcOnClose}>
-                                                Close
-                                            </Button>
-                                        </ModalFooter>
-                                    </ModalContent>
-                                </Modal>
                             </>
                         </Center>
                     </GridItem>
