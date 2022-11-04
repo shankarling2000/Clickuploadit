@@ -81,6 +81,7 @@ function Popup() {
     const { isOpen: tOpen, onOpen: tOnOpen, onClose: tOnClose } = useDisclosure()
     const { isOpen: caOpen, onOpen: caOnOpen, onClose: caOnClose } = useDisclosure()
     const { isOpen: SpaceOpen, onOpen: SpaceOnOpen, onClose: SpaceOnClose } = useDisclosure()
+    const { isOpen: TcOpen, onOpen: TcOnOpen, onClose: TcOnClose } = useDisclosure()
     const [placement, setPlacement] = React.useState('right')
 
     const btnRef = React.useRef()
@@ -684,7 +685,26 @@ function Popup() {
                     </GridItem>
                     <GridItem colStart={5} colEnd={6} h='10'>
                         <Center>
-                            <Button ml='20px' mt='20px' type="submit" size='xs' color='white' bg='grey'>Add Repo</Button>
+                            <>
+                                <Button onClick={TcOnOpen} ml='20px' mt='20px' type="submit" size='xs' color='white' bg='grey'>
+                                    Add Repo
+                                </Button>
+                                <Modal finalFocusRef={finalRef} isOpen={TcOpen} onClose={TcOnClose}>
+                                    <ModalOverlay />
+                                    <ModalContent>
+                                        <ModalHeader>Modal Title</ModalHeader>
+                                        <ModalCloseButton />
+                                        <ModalBody>
+                                        </ModalBody>
+
+                                        <ModalFooter>
+                                            <Button colorScheme='blue' mr={3} onClick={TcOnClose}>
+                                                Close
+                                            </Button>
+                                        </ModalFooter>
+                                    </ModalContent>
+                                </Modal>
+                            </>
                         </Center>
                     </GridItem>
                 </Grid>
