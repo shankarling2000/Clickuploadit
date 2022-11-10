@@ -82,7 +82,10 @@ function Popup() {
     const { isOpen: caOpen, onOpen: caOnOpen, onClose: caOnClose } = useDisclosure()
     const { isOpen: SpaceOpen, onOpen: SpaceOnOpen, onClose: SpaceOnClose } = useDisclosure()
     const { isOpen: TcOpen, onOpen: TcOnOpen, onClose: TcOnClose } = useDisclosure()
+    const { isOpen: addTaskisOpen, onOpen: addTaskonOpen, onClose: addTaskonClose } = useDisclosure()
+
     const [placement, setPlacement] = React.useState('right')
+
 
     const btnRef = React.useRef()
     const btn2Ref = React.useRef()
@@ -91,6 +94,7 @@ function Popup() {
     const btn5Ref = React.useRef()
     const btn6Ref = React.useRef()
     const btn7Ref = React.useRef()
+    const addTaskRef = React.useRef(null)
     const [value, setValue] = React.useState('1')
 
 
@@ -686,7 +690,7 @@ function Popup() {
                     <GridItem colStart={5} colEnd={6} h='10'>
                         <Center>
                             <>
-                                <Button onClick={() => { window.open(`https://app.clickup.com/${currentTeam}/v/l/li/${currentList}`, "ClickUp Tasks") }} ml='20px' mt='20px' type="submit" size='xs' color='white' bg='black'>
+                                <Button onClick={addTaskonOpen} ml='20px' mt='20px' type="submit" size='xs' color='white' bg='black'>
                                     Add Repo
                                 </Button>
                             </>
@@ -695,7 +699,35 @@ function Popup() {
                 </Grid>
             </Box>
 
+            <Modal
+                initialFocusRef={addTaskRef}
+                isOpen={addTaskisOpen}
+                onClose={addTaskonClose}
+            >
+                <ModalOverlay />
+                <ModalContent>
+                    <ModalHeader>Create your account</ModalHeader>
+                    <ModalCloseButton />
+                    <ModalBody pb={6}>
+                        <FormControl>
+                            <FormLabel>Task name</FormLabel>
+                            <Input ref={addTaskRef} placeholder='Task name' />
+                        </FormControl>
 
+                        <FormControl mt={4}>
+                            <FormLabel>Description</FormLabel>
+                            <Input placeholder='Description' />
+                        </FormControl>
+                    </ModalBody>
+
+                    <ModalFooter>
+                        <Button colorScheme='blue' mr={3} onClick={addTaskonClose}>
+                            Save
+                        </Button>
+                        <Button onClick={addTaskonClose}>Cancel</Button>
+                    </ModalFooter>
+                </ModalContent>
+            </Modal>
 
 
             <Accordion color='white' mt='20px' allowMultiple>
