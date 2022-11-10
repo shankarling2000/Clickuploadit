@@ -276,6 +276,19 @@ function Popup() {
     }
 
 
+    const AddNewTag = () => {
+        let clone = [...Tags]
+        clone.push(currentTag)
+        setTags(clone)
+    }
+
+    const AddNewAssignee = () => {
+        let clone = [...Assigned]
+        clone.push(currentAssigned)
+        SetAssigned(clone)
+    }
+
+
 
     const SendData = async (e) => {
         e.preventDefault()
@@ -286,7 +299,9 @@ function Popup() {
             tags: [],
             due_date: '1667004346'
         }
-
+        let clone = [...Tasks]
+        clone.push(obj)
+        SetTasks(clone)
 
         const data = await fetch(`https://api.clickup.com/api/v2/list/${currentList}/task`, {
             method: 'POST',
