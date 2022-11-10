@@ -276,30 +276,17 @@ function Popup() {
     }
 
 
-    const AddNewTag = () => {
-        let clone = [...Tags]
-        clone.push(currentTag)
-        setTags(clone)
-    }
-
-    const AddNewAssignee = () => {
-        let clone = [...Assigned]
-        clone.push(currentAssigned)
-        SetAssigned(clone)
-    }
 
     const SendData = async (e) => {
         e.preventDefault()
         let obj = {
             name: title,
             description: description,
-            assignees: Assigned,
-            tags: Tags,
-            due_date: dueDate
+            assignees: [],
+            tags: [],
+            due_date: '1667004346'
         }
-        let clone = [...Tasks]
-        clone.push(obj)
-        SetTasks(clone)
+
 
         const data = await fetch(`https://api.clickup.com/api/v2/list/${currentList}/task`, {
             method: 'POST',
@@ -690,7 +677,10 @@ function Popup() {
                     <GridItem colStart={5} colEnd={6} h='10'>
                         <Center>
                             <>
-                                <Button onClick={addTaskonOpen} ml='20px' mt='20px' type="submit" size='xs' color='white' bg='black'>
+                                <Button onClick={() => {
+                                    addTaskonOpen();
+                                }}
+                                    ml='20px' mt='20px' type="submit" size='xs' color='white' bg='black'>
                                     Add Repo
                                 </Button>
                             </>
@@ -709,19 +699,31 @@ function Popup() {
                     <ModalHeader>Create your account</ModalHeader>
                     <ModalCloseButton />
                     <ModalBody pb={6}>
-                        <FormControl>
-                            <FormLabel>Task name</FormLabel>
-                            <Input ref={addTaskRef} placeholder='Task name' />
-                        </FormControl>
+                        <Box w="100%" h="13%">
+                            <Input
+                                w="100%" h="100%" placeholder='Title'
+                                value={title}
+                                onChange={(e) => setTitle(e.target.value)}
+                                variant={'flushed'}
+                                borderRadius={0}
+                                borderTop={'none'}
+                                borderLeft={'none'}
+                                borderRight={'none'}
+                            />
+                        </Box>
 
-                        <FormControl mt={4}>
-                            <FormLabel>Description</FormLabel>
-                            <Input placeholder='Description' />
-                        </FormControl>
+                        <Box w="100%" h="45%">
+                            <Textarea
+                                value={description}
+                                onChange={(e) => setDescription(e.target.value)}
+                                h="100%"
+                                placeholder='Task description' />
+                        </Box>
+
                     </ModalBody>
 
                     <ModalFooter>
-                        <Button colorScheme='blue' mr={3} onClick={addTaskonClose}>
+                        <Button colorScheme='blue' mr={3} onClick={(e) => { addTaskonClose(); SetCurrentAssigned([]); setTags([]); setdueDate('0'); SendData(e); }}>
                             Save
                         </Button>
                         <Button onClick={addTaskonClose}>Cancel</Button>
