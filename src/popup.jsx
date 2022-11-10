@@ -291,13 +291,15 @@ function Popup() {
 
 
     const SendData = async (e) => {
+        const d1 = new Date();
+
         e.preventDefault()
         let obj = {
             name: title,
             description: description,
             assignees: [],
             tags: [],
-            due_date: '1667004346'
+            due_date: (d1.getTime()).toString()
         }
         let clone = [...Tasks]
         clone.push(obj)
