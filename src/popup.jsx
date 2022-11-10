@@ -779,17 +779,19 @@ function Popup() {
                                                 <Button type="submit" size='xs' color='white' bg='black'>Submit</Button>
                                             </form>
                                         </Box>
-                                        <Box>
+                                        <Box mt='10px'>
                                             <Button mt='4px' type="submit" size='xs' color='white' bg='black' onClick={() => { window.open(`https://app.clickup.com/t/${currentTask}`, "ClickUp Files") }}>Download</Button>
-                                        </Box>
-                                        <Box>
-                                            <Button size={'xs'}
-                                                bg='black'
+                                            <Button
+                                                ml='6px'
+                                                size={'xs'}
+                                                bg='red.400'
                                                 color={'white'}
                                                 onClick={() => { DeleteTask(item.id) }}>
                                                 Delete
                                             </Button>
+
                                         </Box>
+
 
                                     </AccordionPanel>
                                 </AccordionItem>
