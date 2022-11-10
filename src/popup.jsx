@@ -705,12 +705,16 @@ function Popup() {
                                         <AccordionButton>
                                             <Box flex='1' textAlign='left'>
                                                 {item.name}
-                                            </Box>
+                                            </Box >
                                             <AccordionIcon />
                                         </AccordionButton>
                                     </h2>
                                     <AccordionPanel pb={4}>
-                                        <Box mb='4px'>
+                                        <Box flex='1' textAlign='left' mb='2px'>
+                                            Description:  {item.description}
+                                        </Box>
+
+                                        <Box mb='4px' mt='10px'>
                                             <form onSubmit={handleSubmit(onSubmit)} id='form'>
                                                 <input type="file" {...register("attachment")} />
 
