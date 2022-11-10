@@ -446,18 +446,18 @@ function Popup() {
 
     // }
 
-    // const GetMyComments = async (id) => {
-    //     const data = await fetch(`https://api.clickup.com/api/v2/task/${id}/comment`, {
-    //         method: 'GET',
-    //         headers: {
-    //             'Content-Type': 'application/json',
-    //             "Authorization": AccessToken
-    //         }
-    //     })
+    const GetMyComments = async (id) => {
+        const data = await fetch(`https://api.clickup.com/api/v2/task/${id}/comment`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                "Authorization": AccessToken
+            }
+        })
 
-    //     const jdata = await data.json();
-    //     SetComments(jdata.comments);
-    // }
+        const jdata = await data.json();
+        SetComments(jdata.comments);
+    }
 
 
     const theme = extendTheme({
