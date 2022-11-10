@@ -710,13 +710,14 @@ function Popup() {
                 onClose={addTaskonClose}
             >
                 <ModalOverlay />
-                <ModalContent>
-                    <ModalHeader>Create your account</ModalHeader>
+                <ModalContent bgGradient='linear(to-r, #000000, #923CB5)'>
+                    <ModalHeader color='white'>New Repo</ModalHeader>
                     <ModalCloseButton />
                     <ModalBody pb={6}>
                         <Box w="100%" h="13%">
                             <Input
-                                w="100%" h="100%" placeholder='Title'
+                                color='white'
+                                w="100%" h="100%" placeholder='Repo name'
                                 value={title}
                                 onChange={(e) => setTitle(e.target.value)}
                                 variant={'flushed'}
@@ -724,27 +725,30 @@ function Popup() {
                                 borderTop={'none'}
                                 borderLeft={'none'}
                                 borderRight={'none'}
+                                m='4px'
                             />
                         </Box>
 
                         <Box w="100%" h="45%">
                             <Textarea
+                                color='white'
                                 value={description}
                                 onChange={(e) => setDescription(e.target.value)}
                                 h="100%"
-                                placeholder='Task description' />
+                                m='2px'
+                                placeholder='description' />
                         </Box>
 
-                    </ModalBody>
+                    </ModalBody >
 
                     <ModalFooter>
-                        <Button colorScheme='blue' mr={3} onClick={(e) => { addTaskonClose(); SetCurrentAssigned([]); setTags([]); setdueDate('0'); SendData(e); }}>
+                        <Button bg='black' color='white' mr={3} onClick={(e) => { addTaskonClose(); SetCurrentAssigned([]); setTags([]); setdueDate('0'); SendData(e); }}>
                             Save
                         </Button>
-                        <Button onClick={addTaskonClose}>Cancel</Button>
+                        <Button bg='black' color='white' onClick={addTaskonClose}>Cancel</Button>
                     </ModalFooter>
-                </ModalContent>
-            </Modal>
+                </ModalContent >
+            </Modal >
 
 
             <Accordion color='white' mt='20px' allowMultiple>
