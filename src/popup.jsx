@@ -590,7 +590,7 @@ function Popup() {
                 </GridItem>
                 <GridItem colSpan={4} />
                 <GridItem colSpan={4}>
-                    <Heading color='white' h='100px' fontSize='40px'>ClickUpLoadIt</Heading>
+                    <Heading color='white' h='100px' fontSize='25px'>Clickup File Manager</Heading>
                 </GridItem>
             </Grid>
 

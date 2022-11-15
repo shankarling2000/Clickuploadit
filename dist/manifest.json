@@ -1,6 +1,6 @@
 {
-    "name": "ClickUpLoadIt",
-    "description": "A simple Extension that allows you to upload files to ClickUp",
+    "name": "Clickup File Manager",
+    "description": "A simple Extension that allows you to manage files on ClickUp",
     "version": "1.1",
     "manifest_version": 3,
     "icons": {
